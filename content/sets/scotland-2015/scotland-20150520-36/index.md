@@ -1,0 +1,25 @@
+---
+title: 'The Rock'
+date: '2015-05-20T14:43:17.000Z'
+url: '/scotland-2015/scotland-20150520-36/'
+type: 'sets'
+tags:
+  - 50mm
+  - bokeh
+  - clouds
+  - d300s
+  - depth of field
+  - dof
+  - highlands
+  - landscape
+  - mountain
+  - mountainside
+  - nikon
+  - outdoor
+  - path
+  - rock
+  - scotland
+  - sky
+  - stone
+  - trail
+---

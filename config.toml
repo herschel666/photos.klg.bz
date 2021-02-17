@@ -1,0 +1,4 @@
+baseURL = "http://example.org/"
+languageCode = "en-en"
+theme = "default"
+title = "ek|photos"

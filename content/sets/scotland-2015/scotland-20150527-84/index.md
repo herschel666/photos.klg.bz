@@ -1,0 +1,21 @@
+---
+title: 'Old Car'
+date: '2015-05-27T19:12:22.000Z'
+url: '/scotland-2015/scotland-20150527-84/'
+type: 'sets'
+tags:
+  - 50mm
+  - bokeh
+  - car
+  - d300s
+  - depth of field
+  - dof
+  - edinburgh
+  - nikon
+  - old
+  - oldtimer
+  - outdoor
+  - rain
+  - scotland
+  - vehicle
+---
