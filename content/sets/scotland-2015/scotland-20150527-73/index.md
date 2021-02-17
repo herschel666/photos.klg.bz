@@ -1,0 +1,18 @@
+---
+title: 'Heater'
+date: '2015-05-27T15:21:12.000Z'
+url: '/scotland-2015/scotland-20150527-73/'
+type: 'sets'
+tags:
+  - 50mm
+  - bokeh
+  - d300s
+  - depth of field
+  - dof
+  - edinburgh
+  - heater
+  - national museum
+  - nikon
+  - pillar
+  - scotland
+---

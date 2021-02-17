@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <article>
+    <section>
+      <h1>{{ .Title }}</h1>
+      <hr />
+      {{ $img := .Resources.GetMatch "*image.jpg" }}
+      {{ if ne $img nil }}
+        {{ $resizedImg := $img.Resize "600x400" }}
+        <img src="{{ $resizedImg.Permalink }}" alt="" />
+        {{ with $img.Exif }}
+          {{ with .Tags.ApertureValue }}<b>Aperture: {{ lang.NumFmt 2 . }}</b><br />{{ end }}
+          {{ with .Tags.ExposureTime }}<b>Exposure Time: {{ . }}</b><br />{{ end }}
+        {{ end }}
+      {{ end }}
+    </section>
+  </article>
+{{ end }}

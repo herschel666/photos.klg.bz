@@ -1,0 +1,14 @@
+---
+title: 'Sleeping dog'
+date: '2016-10-29T09:52:39.000Z'
+url: '/nepal-2016/nepal-20161029-39/'
+type: 'sets'
+tags:
+  - animal
+  - annapurna
+  - dog
+  - nepal
+---
+
+This dog was barking the whole night during our stay in Ghandruk, keeping us up. We gathered around
+him the next day, trying to look threatening, but he was not impressed. :-D

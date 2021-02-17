@@ -1,0 +1,13 @@
+---
+title: 'Pebbles'
+date: '2016-10-26T03:44:19.000Z'
+url: '/nepal-2016/nepal-20161026-16/'
+type: 'sets'
+tags:
+  - annapurna
+  - nepal
+  - pebble
+  - pile
+---
+
+I always wonder who started doing these pebble piles. But, yeah, they're everywhere.

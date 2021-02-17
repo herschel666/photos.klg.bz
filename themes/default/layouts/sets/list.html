@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <article>
+    <section>
+      <h1>{{ .Title }}</h1>
+      {{- .Content -}}
+    </section>
+    <section>
+      {{ range .Pages }}
+        <div>
+          {{ .Title }}
+          <a href="{{ .Permalink }}">
+            {{ $img := .Resources.GetMatch "*image.jpg" }}
+            {{ if ne $img nil }}
+              {{ $resizedImg := $img.Resize "200x200" }}
+              <img src="{{ $resizedImg.Permalink }}" alt="" />
+            {{ end }}
+          </a>
+        </div>
+      {{ end }}
+    </section>
+  </article>
+{{ end }}

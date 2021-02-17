@@ -1,0 +1,22 @@
+---
+title: "One o'clock p.m."
+date: '2015-05-28T13:02:36.000Z'
+url: '/scotland-2015/scotland-20150528-87/'
+type: 'sets'
+tags:
+  - 50mm
+  - canon
+  - castle
+  - city
+  - d300s
+  - edinburgh
+  - gun
+  - military
+  - nikon
+  - noon
+  - outdoor
+  - panorama
+  - scotland
+  - shot
+  - smoke
+---

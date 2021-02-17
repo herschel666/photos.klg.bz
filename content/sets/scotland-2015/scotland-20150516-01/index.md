@@ -1,0 +1,24 @@
+---
+title: 'Road'
+date: '2015-05-16T07:23:45.000Z'
+url: '/scotland-2015/scotland-20150516-01/'
+type: 'sets'
+tags:
+  - 50mm
+  - architecture
+  - blossom
+  - building
+  - d300s
+  - drymen
+  - nikon
+  - outdoor
+  - rain
+  - road
+  - scotland
+  - sky
+  - sunlight
+  - tree
+  - wet
+---
+
+At the Drymen Camping Ground.
