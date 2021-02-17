@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{ range where .Site.Pages "Params.type" "set" }}
+    {{ $permalink := .Permalink }}
+    <article>
+      <h2>
+        <a href="{{ $permalink }}">
+          {{ .Title }}
+        </a>
+      </h2>
+      {{ $posterDir := path.Dir .Params.poster }}
+      {{ range .Pages }}
+        {{ $pageDir := path.Base .File.Dir }}
+        {{ if eq $posterDir $pageDir }}
+          <a href="{{ $permalink }}">
+            {{ $img := .Resources.GetMatch "*image.jpg" }}
+            {{ if ne $img nil }}
+              {{ $resizedImg := $img.Fill "800x100" }}
+              <img src="{{ $resizedImg.Permalink }}" alt="" />
+            {{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </article>
+  {{ end }}
+{{ end }}
