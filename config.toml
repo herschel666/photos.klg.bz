@@ -1,5 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-en"
+staticDir = "dist"
 title = "ek|photos"
 
 [imaging]
