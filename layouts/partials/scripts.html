@@ -1,4 +1,4 @@
 {{ $script := .Site.Data.assets.app }}
 {{ with $script.js }}
-  <script src="{{ relURL (printf "%s%s" "dist/" .) }}"></script>
+  <script src="{{ relURL (printf "%s" .) }}"></script>
 {{ end }}
