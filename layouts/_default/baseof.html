@@ -15,7 +15,7 @@
     {{ end }}
     {{ $stylesheet := .Site.Data.assets.app }}
     {{ with $stylesheet.css }}
-    <link href="{{ relURL (printf "%s%s" "dist/" .) }}" rel="stylesheet">
+    <link href="{{ relURL (printf "%s" .) }}" rel="stylesheet">
     {{ end }}
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     {{ if .RSSLink }}

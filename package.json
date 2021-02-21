@@ -1,7 +1,20 @@
 {
   "name": "photoblog-hugo",
   "private": true,
+  "scripts": {
+    "css": "esbuild --bundle assets/styles/main.css --outfile=dist/styles.css",
+    "postcss": "postcss dist/styles.css --use autoprefixer -d dist/",
+    "watch:css": "npm run css -- --watch",
+    "js": "esbuild --bundle --minify --sourcemap assets/scripts/main.js --outfile=dist/scripts.js",
+    "watch:js": "npm run js -- --watch",
+    "watch:hugo": "hugo server -D",
+    "start": "npm-run-all --parallel watch:**"
+  },
   "devDependencies": {
+    "autoprefixer": "10.2.4",
+    "esbuild": "0.8.49",
+    "npm-run-all": "4.1.5",
+    "postcss-cli": "8.3.1",
     "prettier": "2.2.1"
   },
   "dependencies": {
