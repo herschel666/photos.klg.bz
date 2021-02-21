@@ -1,0 +1,62 @@
+<div class="metadata">
+  <div class="metadata__camera">
+    <div class="metadata__caption">
+      {{ partial "icon.html" "camera" }}
+      {{ .Tags.Model }} {{ .Tags.LensModel }}
+    </div>
+    <dl class="metadata__list">
+      <dt class="metadata__list-term">Aperture</dt>
+      <dd class="metadata__list-definition metadata__list-definition--aperture">
+        {{ with .Tags.ApertureValue }}
+          {{ lang.NumFmt 2 . }}
+        {{ end }}
+      </dd>
+      <dt class="metadata__list-term">Focal length</dt>
+      <dd class="metadata__list-definition">
+        {{ with .Tags.FocalLength }}
+          {{ . }}
+        {{ end }}
+      </dd>
+      <dt class="metadata__list-term">Exposure time</dt>
+      <dd class="metadata__list-definition">
+        {{ with .Tags.ExposureTime }}
+          {{ . }}
+        {{ end }}
+      </dd>
+      <dt class="metadata__list-term">ISO</dt>
+      <dd class="metadata__list-definition">
+        {{ with .Tags.ISOSpeedRatings }}
+          {{ . }}
+        {{ end }}
+      </dd>
+    </dl>
+  </div>
+  {{ $x1 := sub .Lat 0.0005 }}
+  {{ $x2 := add .Lat 0.0005 }}
+  {{ $y1 := sub .Long 0.0015 }}
+  {{ $y2 := add .Long 0.0015 }}
+  {{ $bbox := printf "%g,%g,%g,%g" $y1 $x1 $y2 $x2 }}</p>
+  {{ $query := querify "bbox" $bbox "layer" "mapnik" "marker" (printf "%g,%g" .Lat .Long) }}
+  {{ if (and (ne .Lat 0) (ne .Long 0)) }}
+    <div class="metadata__map">
+      <div class="metadata__map-inner">
+        <iframe
+          class="map-module--map--T9zQX"
+          referrerpolicy="no-referrer"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=85.31077166666667%2C27.713986666666667%2C85.31377166666665%2C27.714986666666665&amp;layer=mapnik&amp;marker=27.714486666666666%2C85.31227166666666"
+          width="480"
+          height="240"
+        ></iframe>
+      </div>
+      <a
+        href="https://www.openstreetmap.org/?mlat={{ .Lat }}&amp;mlon={{ .Long }}#map=19/{{ .Lat }}/{{ .Long }}"
+        class="metadata__map-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on openstreetmap.org
+        {{ partial "icon.html" "external-link-alt" }}
+      </a>
+    </div>
+  {{ end }}
+</div>
