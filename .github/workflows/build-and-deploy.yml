@@ -63,8 +63,8 @@ jobs:
         run: npm run fetch-insta
 
       - name: Build the site
-          env:
-            HUGO_ENV: production
+        env:
+          HUGO_ENV: production
         run: npm run build
 
       - name: Deploy to Netlify
