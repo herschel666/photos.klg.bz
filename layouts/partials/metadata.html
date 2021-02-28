@@ -31,7 +31,7 @@
       </dd>
     </dl>
   </div>
-  {{ $hasCoords := (and (ne .Lat 0) (ne .Long 0)) }}
+  {{ $hasCoords := (and (ne .Lat 0.0) (ne .Long 0.0)) }}
   {{ $emptyClass := "metadata__map--empty" }}
   {{ if $hasCoords }}
     {{ $emptyClass = "" }}
