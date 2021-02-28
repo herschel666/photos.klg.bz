@@ -1,6 +1,9 @@
-{{ $type := . }}
-{{ with readFile (printf "node_modules/@fortawesome/fontawesome-free/svgs/solid/%s.svg" $type) }}
-{{ $icon := replace . "xmlns=" (printf "class=\"icon icon--%s\" xmlns=" $type) }}
-{{ $icon = replace $icon "<path d=" "<path fill=\"currentColor\" d=" }}
+{{ $name := .name }}
+{{ with readFile (printf "node_modules/@fortawesome/fontawesome-free/svgs/%s/%s.svg" .folder $name) }}
+  {{ $icon := replace . "xmlns=" (printf "class=\"icon icon--%s\" xmlns=" $name) }}
+  {{ $icon = replace $icon "xmlns=" "role=\"img\" xmlns=" }}
+  {{ $icon = replace $icon "xmlns=" "aria-hidden=\"true\" xmlns=" }}
+  {{ $icon = replace $icon "xmlns=" "focusable=\"false\" xmlns=" }}
+  {{ $icon = replace $icon "<path d=" "<path fill=\"currentColor\" d=" }}
   {{ safeHTML $icon }}
 {{ end }}
