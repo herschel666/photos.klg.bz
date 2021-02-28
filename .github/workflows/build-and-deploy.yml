@@ -41,7 +41,8 @@ jobs:
           path: ./resources
           key: ${{ runner.os }}-resources-
 
-      - uses: actions/cache@v2
+      - name: Cache Hugo
+        uses: actions/cache@v2
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
