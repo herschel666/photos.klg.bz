@@ -1,0 +1,17 @@
+{
+  "extends": ["config:base"],
+  "constraints": {
+    "npm": "^7"
+  },
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "groupName": "definitelyTyped",
+      "packagePatterns": ["^@types/"]
+    }
+  ]
+}
