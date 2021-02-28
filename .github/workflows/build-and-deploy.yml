@@ -59,8 +59,8 @@ jobs:
 
       - name: Fetch Insta contents
         env:
-          ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
         run: npm run fetch-insta
 
       - name: Build the site
