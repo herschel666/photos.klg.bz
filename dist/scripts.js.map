@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../assets/scripts/main.js"],
-  "sourcesContent": ["document.head.appendChild(\n  Object.assign(document.createElement('style'), {\n    textContent: 'a:visited { color: crimson }',\n  })\n);\n"],
-  "mappings": "MAAA,SAAS,KAAK,YACZ,OAAO,OAAO,SAAS,cAAc,SAAU,CAC7C,YAAa",
-  "names": []
-}

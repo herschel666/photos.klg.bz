@@ -1,0 +1,49 @@
+.single__title {
+  margin-bottom: 1rem;
+}
+
+.single__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.single__pubdate {
+  flex: 0 1;
+  line-height: 1.9;
+  font-size: 0.75rem;
+  color: var(--color-greyish);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/* TODO: investigate esbuild bug */
+.single__pubdate--needs-dash::after {
+  content: '—';
+  padding: 0 0.75rem;
+  vertical-align: top;
+}
+
+.single__figure {
+  margin: 0 auto 2.5rem auto;
+}
+
+.single__caption {
+  display: flex;
+  margin-top: 0.5rem;
+  font-size: 0.75rem; /* 12 / 16 */
+}
+
+.single__caption p {
+  line-height: unset;
+}
+
+@media screen and (min-width: 700px) {
+  .single__title {
+    margin-bottom: 2rem;
+  }
+
+  .single__caption {
+    font-size: 0.875rem; /* 14 / 16 */
+  }
+}

@@ -1,10 +1,11 @@
-baseURL = "http://example.org/"
+baseURL = "/"
+disableKinds = ["taxonomy", "term"]
 languageCode = "en-en"
 staticDir = "dist"
 title = "ek|photos"
 
 [imaging]
-quality = 85
+quality = 90
 
 [imaging.exif]
 disableDate = true

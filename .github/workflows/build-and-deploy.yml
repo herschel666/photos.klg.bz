@@ -1,0 +1,83 @@
+name: Build and Test and Deploy
+
+on:
+  push:
+    branches:
+      - KillYourMaster
+  pull_request:
+  repository_dispatch:
+    types: deploy
+
+jobs:
+  ci-cd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out the branch
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: Cache node dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache public dir
+        uses: actions/cache@v2
+        with:
+          path: ./public
+          key: ${{ runner.os }}-public-
+
+      - name: Cache resources dir
+        uses: actions/cache@v2
+        with:
+          path: ./resources
+          key: ${{ runner.os }}-resources-
+
+      - uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.80.0'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Fetch Insta contents
+        env:
+          ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+        run: npm run fetch-insta
+
+      - name: Build the site
+          env:
+            HUGO_ENV: production
+        run: npm run build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './public'
+          production-branch: KillYourMaster
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy from herschel666/photos.klg.bz'
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          alias: ${{ github.sha }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5

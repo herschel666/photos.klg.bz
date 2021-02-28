@@ -1,0 +1,11 @@
+.image-link {
+  display: block;
+}
+
+.image-link__image {
+  margin-bottom: 0.5rem;
+}
+
+.image-link__caption {
+  font-size: 0.75rem;
+}

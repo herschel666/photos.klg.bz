@@ -2,19 +2,13 @@
   <main role="main">
     <div class="content">
       <h1 class="content__title">{{ .Title }}</h1>
-      <time dateTime={{ .Params.date }} class="content__pubdate">
-        {{ .Params.date.Format "2006/01/02"}}
-      </time>
-      <div class="content__description">
-        {{- .Content -}}
-      </div>
     </div>
     <div class="content__links">
       {{ partial "back.html" "/" }}
       {{ partial "share-button.html" .Permalink }}
     </div>
     <section class="grid">
-      {{ range .Pages.ByDate }}
+      {{ range .Pages.ByDate.Reverse }}
         <figure>
           <a href="{{ .Permalink }}" class="image-link">
             {{ $sizes := slice 58 115 230 345 460 690 }}
