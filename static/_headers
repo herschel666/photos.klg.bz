@@ -7,3 +7,9 @@
   Access-Control-Allow-Methods: GET, OPTIONS
   Access-Control-Allow-Origin: https://photos.klg.bz
   Access-Control-Allow-Credentials: true
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
