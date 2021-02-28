@@ -1,7 +1,7 @@
 baseURL = "/"
 disableKinds = ["taxonomy", "term"]
 languageCode = "en-en"
-staticDir = "dist"
+staticDir = ["dist", "static"]
 title = "ek|photos"
 
 [imaging]
