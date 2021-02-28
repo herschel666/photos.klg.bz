@@ -4,11 +4,18 @@
     {{ block "htmlhead" .}}{{ partial "htmlhead.html" . }}{{ end }}
   </head>
   <body>
-    {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
-    <main role="main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+    <div class="container">
+      {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+
+      {{ $mainContentClassModifier := "" }}
+      {{ if .Page.IsHome }}
+        {{ $mainContentClassModifier = "container--has-aside" }}
+      {{ end }}
+      <div class="container__inner {{ $mainContentClassModifier }}" id="main-content">
+        {{ block "main" . }}{{ end }}
+      </div>
+      {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+    </div>
     {{ block "scripts" . }}{{ partial "scripts.html" . }}{{ end }}
   </body>
 </html>

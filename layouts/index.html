@@ -1,25 +1,51 @@
 {{ define "main" }}
-  {{ range where .Site.Pages "Params.type" "set" }}
-    {{ $permalink := .Permalink }}
-    <article>
-      <h2>
-        <a href="{{ $permalink }}">
-          {{ .Title }}
-        </a>
-      </h2>
-      {{ $posterDir := path.Dir .Params.poster }}
-      {{ range .Pages }}
-        {{ $pageDir := path.Base .File.Dir }}
-        {{ if eq $posterDir $pageDir }}
-          <a href="{{ $permalink }}">
-            {{ $img := .Resources.GetMatch "*image.jpg" }}
-            {{ if ne $img nil }}
-              {{ $resizedImg := $img.Fill "800x100" }}
-              <img src="{{ $resizedImg.Permalink }}" alt="" />
+  <main class="container__main" role="main">
+    <p class="intro">Welcome to my cyberspace online photo album!!</p>
+    <ul class="set-list">
+      {{ range where .Site.Pages "Params.type" "set" }}
+        {{ $title := .Title }}
+        <li class="set-list__item">
+          <a href="{{ .Permalink }}" class="set-list__link">
+            <h3 class="set-list__caption">
+              {{ $title }}
+            </h3>
+            {{ $posterDir := path.Dir .Params.poster }}
+            {{ range .Pages }}
+              {{ $pageDir := path.Base .File.Dir }}
+              {{ if eq $posterDir $pageDir }}
+                {{ $img := .Resources.GetMatch "*image.jpg" }}
+                {{ $resizedImg := $img.Fill "800x100 Gaussian q4" }}
+                <figure class="set-list__poster">
+                  <time dateTime={{ .Params.date | safeHTMLAttr }} class="set-list__pubdate">
+                    {{ .Params.date.Format "2006/01/02" }}
+                  </time>
+                  <img src="{{ $resizedImg.Permalink }}" alt="{{ $title | safeHTMLAttr }}" />
+                </figure>
+              {{ end }}
             {{ end }}
           </a>
-        {{ end }}
+        </li>
       {{ end }}
-    </article>
-  {{ end }}
+    </ul>
+  </main>
+  <aside class="container__aside">
+    <div class="insta">
+      <h3 class="insta__headline">Insta Feed</h3>
+      <div class="insta__list">
+        {{ range first 3 (where .Site.Pages "Params.type" "insta") }}
+          <figure class="insta__image">
+            <a href="{{ .Permalink }}#main-content" class="insta__image-link">
+              {{ $sizes := slice 58 115 230 345 460 690 }}
+              {{ $args := dict "resources" .Resources "match" "*image.jpg" "sizes" $sizes "maxWidth" 230 }}
+              {{ $args = merge $args (dict "square" true "alt" .Params.alt) }}
+              {{ partial "image.html" $args }}
+            </a>
+          </figure>
+        {{ end }}
+      </div>
+      <a href="/insta/" class="insta__more-link">
+        View all images
+      </a>
+    </div>
+  </aside>
 {{ end }}

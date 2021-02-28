@@ -1,5 +1,1 @@
-document.head.appendChild(
-  Object.assign(document.createElement('style'), {
-    textContent: 'a:visited { color: crimson }',
-  })
-);
+console.log('Hello World!');

@@ -1,0 +1,16 @@
+<nav class="image-nav">
+  {{ with .PrevInSection }}
+    <span class="image-nav__prev">
+      <a href="{{.Permalink}}">{{ .Title }}</a>
+    </span>
+  {{ else }}
+    <span class="image-nav__prev image-nav--hidden"></span>
+  {{end}}
+  {{ with .NextInSection }}
+    <span class="image-nav__next">
+      <a href="{{.Permalink}}">{{ .Title }}</a>
+    </span>
+    {{ else }}
+      <span class="image-nav__next image-nav--hidden"></span>
+  {{end}}
+</nav>

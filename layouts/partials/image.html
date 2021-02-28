@@ -1,0 +1,52 @@
+{{ $img := false }}
+
+{{ if isset . "img" }}
+  {{ $img = .img }}
+{{ else }}
+  {{ if and (isset . "resources") (isset . "match") }}
+    {{ $img = .resources.GetMatch .match }}
+  {{ else }}
+    {{ errorf "Either need .img-prop or .resources- & .match-props!" }}
+  {{ end }}
+{{ end }}
+
+{{ $maxWidth := .maxWidth }}
+{{ $square := false }}
+{{ $sizesAttr := printf "(max-width: %dpx) 100vw, %dpx" $maxWidth $maxWidth }}
+{{ $classAttr := "" }}
+{{ $srcset := slice }}
+{{ $fallbackSrc := "" }}
+
+{{ with .square }}
+  {{ $square = true }}
+{{ end }}
+
+{{ with .class }}
+  {{ $classAttr = printf "class=\"%s\"" . }}
+{{ end }}
+
+{{ range .sizes }}
+  {{ $width := . }}
+  {{ $resizedImg := "" }}
+
+  {{ if $square }}
+    {{ $resizedImg = $img.Fill (printf "%dx%d smart" $width $width) }}
+  {{ else }}
+    {{ $resizedImg = $img.Resize (printf "%dx smart" $width) }}
+  {{ end }}
+
+  {{ $srcset = $srcset | append (printf "%s %dw" $resizedImg.Permalink $width) }}
+
+  {{ if eq $width $maxWidth }}
+    {{ $fallbackSrc = $resizedImg.Permalink }}
+  {{ end }}
+{{ end }}
+
+<img
+  loading="lazy"
+  sizes="{{ $sizesAttr }}"
+  srcset="{{ delimit $srcset ", " }}"
+  src="{{ $fallbackSrc }}"
+  alt="{{ .alt }}"
+  {{ $classAttr | safeHTMLAttr }}
+/>

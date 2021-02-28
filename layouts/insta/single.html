@@ -6,9 +6,8 @@
       {{ partial "share-button.html" .Permalink }}
     </div>
     <figure class="single__figure">
-      {{ $img := .Resources.GetMatch "*image.jpg" }}
       {{ $sizes := slice 250 500 1000 1500 2000 }}
-      {{ $args := dict "img" $img "sizes" $sizes "maxWidth" 1000 "alt" .Title }}
+      {{ $args := dict "resources" .Resources "match" "*image.jpg" "sizes" $sizes "maxWidth" 1000 "alt" .Title }}
       {{ partial "image.html" $args }}
       <figcaption class="single__caption">
         {{ $dashClass := "" }}
@@ -22,6 +21,5 @@
       </figcaption>
     </figure>
     {{ partial "image-nav.html" . }}
-    {{ partial "metadata.html" $img.Exif }}
   </main>
 {{ end }}
