@@ -4,11 +4,6 @@
   {{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }} {{ end }}
 </title>
 <meta name="viewport" content="width=device-width,minimum-scale=1" />
-{{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
-  <meta name="robots" content="index, follow" />
-{{ else }}
-  <meta name="robots" content="noindex, nofollow" />
-{{ end }}
 {{ $stylesheet := .Site.Data.assets.app }}
 {{ with $stylesheet.css }}
 <link href="{{ relURL (printf "%s" .) }}" rel="stylesheet">
