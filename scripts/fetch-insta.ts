@@ -28,10 +28,10 @@ interface Image {
 
 require('dotenv').config();
 
-const { SPACE_ID, ACCESS_TOKEN } = process.env;
+const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env;
 
-strictEqual(typeof SPACE_ID, 'string');
-strictEqual(typeof ACCESS_TOKEN, 'string');
+strictEqual(typeof CONTENTFUL_SPACE_ID, 'string');
+strictEqual(typeof CONTENTFUL_ACCESS_TOKEN, 'string');
 
 const INSTA_DIR = path.resolve(__dirname, '..', 'content', 'insta');
 
@@ -41,8 +41,8 @@ title: 'Insta'
 `;
 
 const client = createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
+  space: CONTENTFUL_SPACE_ID,
+  accessToken: CONTENTFUL_ACCESS_TOKEN,
 });
 
 const createSlug = (dateString: string, title: string): string => {
