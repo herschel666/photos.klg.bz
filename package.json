@@ -5,13 +5,12 @@
     "css": "esbuild --bundle assets/styles/main.css --outfile=dist/styles.css",
     "postcss": "postcss dist/styles.css --use autoprefixer --use cssnano -d dist/",
     "watch:css": "npm run css -- --watch",
-    "js": "esbuild --bundle assets/scripts/main.js --outfile=dist/scripts.js",
+    "js": "esbuild --bundle --sourcemap assets/scripts/main.js --outfile=dist/scripts.js",
     "watch:js": "npm run js -- --watch",
     "watch:hugo": "hugo server -D",
     "start": "npm-run-all --parallel watch:**",
     "prebuild": "rm -rf ./dist",
     "build:assets": "npm-run-all --parallel css \"js -- --minify\"",
-    "postbuild:assets": "ts-node scripts/content-hash.ts",
     "build:hugo": "hugo --minify",
     "build": "npm-run-all build:*",
     "fetch-insta": "ts-node scripts/fetch-insta.ts"
@@ -31,7 +30,6 @@
     "dotenv": "8.2.0",
     "emoji-regex": "8.0.0",
     "esbuild": "0.8.49",
-    "globby": "11.0.2",
     "postcss": "8.2.6",
     "postcss-cli": "8.3.1",
     "slugify": "1.4.7"
