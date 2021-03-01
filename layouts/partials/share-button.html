@@ -1,13 +1,21 @@
-<details class="share-button">
+<details class="share-button" id="share-button">
   <summary class="share-button__trigger share-button__base-btn">
     Share
-</summary>
+  </summary>
   <div class="share-button__menu">
-    <button data-share-target="twitter" data-share-url="{{ . }}" class="share-button__target share-button__base-btn">
+    <button
+      data-share-target="twitter"
+      data-share-url="{{ . }}"
+      class="share-button__target share-button__base-btn"
+    >
       <span class="h-visually-hidden">Share current page on twitter</span>
       {{ partial "icon.html" (dict "folder" "brands" "name" "twitter") }}
     </button>
-    <button data-share-target="facebook" data-share-url="{{ . }}" class="share-button__target share-button__base-btn">
+    <button
+      data-share-target="facebook"
+      data-share-url="{{ . }}"
+      class="share-button__target share-button__base-btn"
+    >
       <span class="h-visually-hidden">Share current page on Facebook</span>
       {{ partial "icon.html" (dict "folder" "brands" "name" "facebook") }}
     </button>
