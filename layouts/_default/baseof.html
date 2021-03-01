@@ -2,6 +2,7 @@
 <html lang="{{ $.Site.LanguageCode }}">
   <head>
     {{ block "htmlhead" .}}{{ partial "htmlhead.html" . }}{{ end }}
+    {{ block "scripts" . }}{{ partial "scripts.html" . }}{{ end }}
   </head>
   <body>
     <div class="container">
@@ -16,6 +17,5 @@
       </div>
       {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
     </div>
-    {{ block "scripts" . }}{{ partial "scripts.html" . }}{{ end }}
   </body>
 </html>
