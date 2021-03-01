@@ -1,4 +1,4 @@
-name: Build and Test and Deploy
+name: Build and Deploy
 
 on:
   push:
@@ -55,7 +55,9 @@ jobs:
           hugo-version: '0.80.0'
 
       - name: Install Node dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm test
 
       - name: Fetch Insta contents
         env:
