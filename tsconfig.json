@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "target": "es2018",
-    "lib": ["es2020"],
+    "lib": ["es2020", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": false,
@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["./scripts/*.ts"],
+  "include": ["./scripts/*.ts", "./assets"],
   "exclude": ["node_modules"]
 }
