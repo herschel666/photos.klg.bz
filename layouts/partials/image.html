@@ -48,5 +48,7 @@
   srcset="{{ delimit $srcset ", " }}"
   src="{{ $fallbackSrc }}"
   alt="{{ .alt }}"
+  width="{{ $img.Width }}"
+  height="{{ $img.Height }}"
   {{ $classAttr | safeHTMLAttr }}
 />
