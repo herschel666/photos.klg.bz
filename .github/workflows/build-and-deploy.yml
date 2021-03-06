@@ -29,17 +29,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Cache public dir
-        uses: actions/cache@v2
-        with:
-          path: ./public
-          key: ${{ runner.os }}-public-
-
       - name: Cache resources dir
         uses: actions/cache@v2
         with:
-          path: ./resources
-          key: ${{ runner.os }}-resources-
+          path: resources/_gen
+          key: ${{ runner.os }}-resources-${{ hashFiles('config.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-resources-
 
       - name: Cache Hugo
         uses: actions/cache@v2
