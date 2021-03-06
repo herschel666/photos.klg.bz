@@ -1,2 +1,6 @@
 package.json
+package-lock.json
 *.html
+dist
+public
+resources

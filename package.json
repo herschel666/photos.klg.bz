@@ -14,12 +14,22 @@
     "build:hugo": "hugo --minify",
     "build": "npm-run-all build:*",
     "fetch-insta": "ts-node scripts/fetch-insta.ts",
+    "lint": "eslint --quiet --ignore-path .gitignore ./{scripts,assets}/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "fmt": "prettier --config ./.prettierrc --ignore-path ./.prettierignore .",
+    "fmt:check": "npm run fmt -- --check",
+    "fmt:write": "npm run fmt -- --write",
     "tsc": "tsc --noEmit",
-    "test": "npm-run-all tsc"
+    "test": "npm-run-all lint tsc fmt:check"
   },
   "devDependencies": {
     "@types/node": "14.14.31",
     "@types/turbolinks": "5.2.0",
+    "@typescript-eslint/eslint-plugin": "4.16.1",
+    "@typescript-eslint/parser": "4.2.0",
+    "eslint": "7.19.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-prettier": "3.3.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
     "ts-node": "9.1.1",
