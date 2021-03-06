@@ -19,7 +19,12 @@
                   <time dateTime={{ .Params.date | safeHTMLAttr }} class="set-list__pubdate">
                     {{ .Params.date.Format "2006/01/02" }}
                   </time>
-                  <img src="{{ $resizedImg.Permalink }}" alt="{{ $title | safeHTMLAttr }}" />
+                  <img
+                    src="{{ $resizedImg.Permalink }}"
+                    alt="{{ $title | safeHTMLAttr }}"
+                    width="{{ $resizedImg.Width }}"
+                    height="{{ $resizedImg.Height }}"
+                  />
                 </figure>
               {{ end }}
             {{ end }}
