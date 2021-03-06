@@ -5,7 +5,7 @@ staticDir = ["dist", "static"]
 title = "ek|photos"
 
 [imaging]
-quality = 90
+quality = 100
 
 [imaging.exif]
 disableDate = true
