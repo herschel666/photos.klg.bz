@@ -12,6 +12,7 @@
     "watch:hugo": "hugo server -D",
     "start": "npm-run-all --parallel watch:**",
     "prebuild": "rm -rf ./dist",
+    "postbuild": "rm data/*.json",
     "build:assets": "npm-run-all --parallel bundle:**",
     "build:hugo": "hugo --minify",
     "build": "npm-run-all build:*",
