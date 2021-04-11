@@ -13,7 +13,7 @@
 {{ $maxWidth := .maxWidth }}
 {{ $square := false }}
 {{ $sizesAttr := printf "(max-width: %dpx) 100vw, %dpx" $maxWidth $maxWidth }}
-{{ $classAttr := "" }}
+{{ $classAttr := "class=\"image\"" }}
 {{ $srcset := slice }}
 {{ $fallbackSrc := "" }}
 
@@ -22,7 +22,7 @@
 {{ end }}
 
 {{ with .class }}
-  {{ $classAttr = printf "class=\"%s\"" . }}
+  {{ $classAttr = printf "class=\"image %s\"" . }}
 {{ end }}
 
 {{ range .sizes }}
@@ -42,6 +42,10 @@
   {{ end }}
 {{ end }}
 
+{{ $preview := $img.Resize "8x smart" }}
+{{ $previewUri := printf "%s" ($preview.Content | base64Encode) }}
+{{ $backgroundImage := printf "url(data:image/jpeg;base64,%s)" $previewUri | safeCSS }}
+
 <img
   loading="lazy"
   sizes="{{ $sizesAttr }}"
@@ -50,5 +54,6 @@
   alt="{{ .alt }}"
   width="{{ $img.Width }}"
   height="{{ $img.Height }}"
+  style="background-image: {{ $backgroundImage }}"
   {{ $classAttr | safeHTMLAttr }}
 />
