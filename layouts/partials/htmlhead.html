@@ -4,9 +4,17 @@
   {{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }} {{ end }}
 </title>
 <meta name="viewport" content="width=device-width,minimum-scale=1" />
-{{ $stylesheet := .Site.Data.assets.app }}
-{{ with $stylesheet.css }}
-<link href="{{ relURL (printf "%s" .) }}" rel="stylesheet">
+{{ with .Site.Data.styles.outputs }}
+  {{ range $filePath, $_ := . }}
+    {{ if strings.HasSuffix $filePath "css" }}
+      {{ with $filePath }}
+        {{ $file := path.Base . }}
+        <link href="{{ relURL (printf "%s" $file) }}" rel="stylesheet" />
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <link href="/styles.css" rel="stylesheet" />
 {{ end }}
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 {{ with .OutputFormats.Get "RSS" }}

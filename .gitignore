@@ -4,3 +4,4 @@ public
 dist
 content/insta
 .env
+data/*.json
