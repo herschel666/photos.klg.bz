@@ -45,7 +45,7 @@
     "esbuild": "0.8.49",
     "postcss": "8.2.9",
     "postcss-cli": "8.3.1",
-    "slugify": "1.4.7",
+    "slugify": "1.5.0",
     "turbolinks": "5.2.0"
   }
 }
