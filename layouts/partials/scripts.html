@@ -1,4 +1,12 @@
-{{ $script := .Site.Data.assets.app }}
-{{ with $script.js }}
-  <script src="{{ relURL (printf "%s" .) }}" defer></script>
+{{ with .Site.Data.scripts.outputs }}
+  {{ range $filePath, $_ := . }}
+    {{ if strings.HasSuffix $filePath "js" }}
+      {{ with $filePath }}
+        {{ $file := path.Base . }}
+        <script src="{{ relURL (printf "%s" $file) }}" defer></script>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <script src="/scripts.js" defer></script>
 {{ end }}
