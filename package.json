@@ -45,7 +45,7 @@
     "cssnano": "5.0.1",
     "dotenv": "8.2.0",
     "emoji-regex": "9.2.2",
-    "esbuild": "0.11.8",
+    "esbuild": "0.11.12",
     "postcss": "8.2.10",
     "postcss-cli": "8.3.1",
     "slugify": "1.5.0",
