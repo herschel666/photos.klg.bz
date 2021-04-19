@@ -41,7 +41,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
     "autoprefixer": "10.2.5",
-    "contentful": "8.2.1",
+    "contentful": "8.3.0",
     "cssnano": "5.0.1",
     "dotenv": "8.2.0",
     "emoji-regex": "9.2.2",
