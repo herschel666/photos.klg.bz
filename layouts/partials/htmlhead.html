@@ -4,18 +4,12 @@
   {{ block "title" . }}{{ .Site.Title }} {{ with .Params.Title }} | {{ . }}{{ end }} {{ end }}
 </title>
 <meta name="viewport" content="width=device-width,minimum-scale=1" />
-{{ with .Site.Data.styles.outputs }}
-  {{ range $filePath, $_ := . }}
-    {{ if strings.HasSuffix $filePath "css" }}
-      {{ with $filePath }}
-        {{ $file := path.Base . }}
-        <link href="{{ relURL (printf "%s" $file) }}" rel="stylesheet" />
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ else }}
-  <link href="/styles.css" rel="stylesheet" />
+{{ $options := dict "inlineImports" true }}
+{{ $styles := resources.Get "styles/main.css" | resources.PostCSS $options | toCSS }}
+{{ if hugo.IsProduction }}
+  {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
 {{ end }}
+<link href="{{ $styles.Permalink }}" rel="stylesheet" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 {{ with .OutputFormats.Get "RSS" }}
   <link

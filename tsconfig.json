@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["./scripts/*.ts", "./assets"],
+  "include": ["./scripts/*.ts", "./assets", "postcss.config.js"],
   "exclude": ["node_modules"]
 }
