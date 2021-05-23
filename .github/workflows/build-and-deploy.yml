@@ -67,6 +67,16 @@ jobs:
           HUGO_ENV: production
         run: npm run build
 
+      - name: Compress Images
+        uses: calibreapp/image-actions@master
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+          ignorePaths: 'content/**,layouts/**,node_modules/**,resources/**'
+          jpegQuality: '90'
+          jpegProgressive: true
+          pngQuality: '90'
+
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
