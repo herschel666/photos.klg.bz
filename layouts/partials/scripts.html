@@ -1,12 +1,6 @@
-{{ with .Site.Data.scripts.outputs }}
-  {{ range $filePath, $_ := . }}
-    {{ if strings.HasSuffix $filePath "js" }}
-      {{ with $filePath }}
-        {{ $file := path.Base . }}
-        <script src="{{ relURL (printf "%s" $file) }}" defer></script>
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ else }}
-  <script src="/scripts.js" defer></script>
+{{ $mainJs := resources.Get "scripts/main.ts" | js.Build "scripts/main.js" }}
+{{ if hugo.IsProduction }}
+  {{ $options := dict "minified" true }}
+  {{ $mainJs = $mainJs | babel $options | minify | fingerprint }}
 {{ end }}
+<script src="{{ $mainJs.Permalink }}" defer></script>
