@@ -27,7 +27,9 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
+            ${{ runner.os }}-node-${{ env.cache-name }}-
             ${{ runner.os }}-node-
+            ${{ runner.os }}-
 
       - name: Cache resources dir
         uses: actions/cache@v2
@@ -35,7 +37,9 @@ jobs:
           path: resources/_gen
           key: ${{ runner.os }}-resources-${{ hashFiles('config.toml') }}
           restore-keys: |
+            ${{ runner.os }}-resources-${{ env.cache-name }}-
             {{ runner.os }}-resources-
+            {{ runner.os }}-
 
       - name: Cache Hugo
         uses: actions/cache@v2
@@ -43,7 +47,9 @@ jobs:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
           restore-keys: |
+            ${{ runner.os }}-hugomod-${{ env.cache-name }}-
             ${{ runner.os }}-hugomod-
+            {{ runner.os }}-
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
