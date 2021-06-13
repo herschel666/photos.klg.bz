@@ -75,6 +75,7 @@ jobs:
 
       - name: Compress Images
         uses: calibreapp/image-actions@master
+        if: github.ref == 'refs/heads/KillYourMaster'
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
