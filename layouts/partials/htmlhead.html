@@ -11,9 +11,38 @@
 {{ end }}
 <link href="{{ $styles.Permalink }}" rel="stylesheet" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="webmention" href="https://webmention.io/photos.klg.bz/webmention" />
+<link rel="pingback" href="https://webmention.io/photos.klg.bz/xmlrpc" />
+{{ $lastChanged := .Site.LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}
+<meta name="revised" content="{{ $lastChanged }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:title" content="{{ .Site.Title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:updated_time" content="{{ $lastChanged }}" />
+<meta name="twitter:site" content="{{ .Site.Title }}" />
+<meta name="twitter:creator" content="@Herschel_R" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#000000" />
+
+{{ block "meta" . }}
+  {{ $pageTitle := .Site.Title }}
+  {{ with .Page.Params.Title }}
+    {{ $pageTitle = . }}
+  {{ end }}
+  {{ $pageDescription := "📷" }}
+  {{ with .Summary }}
+    {{ $pageDescription = . | truncate 80 }}
+  {{ end }}
+  <meta name="description" content="{{ $pageDescription }}" />
+  <meta property="og:description" content="{{ $pageDescription }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta name="twitter:title" content="{{ $pageTitle }}" />
+  <meta name="twitter:description" content="{{ $pageDescription }}" />
+{{ end }}
+
 <link
   href="/index.xml"
   rel="alternate"
   type="application/rss+xml"
-  title="ek|photos"
+  title="{{ .Site.Title }}"
 />
