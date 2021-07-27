@@ -11,6 +11,7 @@
 {{ end }}
 
 {{ $maxWidth := .maxWidth }}
+{{ $imgHeight := $img.Height }}
 {{ $square := false }}
 {{ $sizesAttr := printf "(max-width: %dpx) 100vw, %dpx" $maxWidth $maxWidth }}
 {{ $classAttr := "class=\"image\"" }}
@@ -19,6 +20,7 @@
 
 {{ with .square }}
   {{ $square = true }}
+  {{ $imgHeight = $img.Width }}
 {{ end }}
 
 {{ with .class }}
@@ -53,7 +55,7 @@
   src="{{ $fallbackSrc }}"
   alt="{{ .alt }}"
   width="{{ $img.Width }}"
-  height="{{ $img.Height }}"
+  height="{{ $imgHeight }}"
   style="background-image: {{ $backgroundImage }}"
   {{ $classAttr | safeHTMLAttr }}
 />
