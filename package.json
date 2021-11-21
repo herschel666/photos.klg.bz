@@ -33,7 +33,7 @@
     "@babel/preset-env": "7.16.4",
     "@fortawesome/fontawesome-free": "5.15.4",
     "autoprefixer": "10.4.0",
-    "contentful": "8.5.8",
+    "contentful": "9.1.4",
     "cssnano": "5.0.11",
     "dotenv": "10.0.0",
     "emoji-regex": "10.0.0",
