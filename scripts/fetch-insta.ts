@@ -5,7 +5,7 @@ import https from 'https';
 import { createClient } from 'contentful';
 import type { Asset } from 'contentful';
 import slugify from 'slugify';
-import emojiRegex from 'emoji-regex/es2015';
+import emojiRegex from 'emoji-regex';
 
 interface Entry {
   title: string;
