@@ -36,7 +36,7 @@
     "contentful": "9.1.4",
     "cssnano": "5.0.12",
     "dotenv": "10.0.0",
-    "emoji-regex": "10.0.0",
+    "emoji-regex": "10.1.0",
     "postcss": "8.4.4",
     "postcss-cli": "9.0.2",
     "slugify": "1.6.3",
