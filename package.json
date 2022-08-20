@@ -38,7 +38,7 @@
     "dotenv": "16.0.1",
     "emoji-regex": "10.1.0",
     "postcss": "8.4.16",
-    "postcss-cli": "9.1.0",
+    "postcss-cli": "10.0.0",
     "slugify": "1.6.5",
     "turbolinks": "5.2.0"
   }
