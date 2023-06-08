@@ -28,9 +28,9 @@
     "typescript": "4.9.5"
   },
   "dependencies": {
-    "@babel/cli": "7.19.3",
-    "@babel/core": "7.19.6",
-    "@babel/preset-env": "7.19.4",
+    "@babel/cli": "7.22.5",
+    "@babel/core": "7.22.5",
+    "@babel/preset-env": "7.22.5",
     "@fortawesome/fontawesome-free": "5.15.4",
     "autoprefixer": "10.4.13",
     "contentful": "9.2.9",
