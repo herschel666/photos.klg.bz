@@ -1,21 +1,28 @@
 .header {
-  margin-bottom: 1rem;
+  margin-bottom: 4rem; /* 64 / 16 */
   background-color: black;
   border-bottom: 1px solid #333;
 }
 
 .header__title {
   display: block;
-  padding: 1rem 0.5rem; /* 8 / 16 */
+  height: 1.5rem; /* 24 / 16 */
+  padding-left: 0.5rem; /* 8 / 16 */
   margin: 0 auto;
   max-width: var(--content-max-width);
-  font-size: 0.75rem; /* 12 / 16 */
   user-select: none;
 }
 
 .header__link {
+  display: inline-block;
+  height: 3.5rem; /* 56 / 16 */
+  margin-top: -0.125rem; /* 2 / 16 */
   text-decoration: none;
   color: var(--color-bright);
+  line-height: 1;
+  font-size: 2.5rem; /* 40 / 16 */
+  white-space: nowrap;
+  letter-spacing: 0.5rem; /* 8 / 16 */
 }
 
 .header__link:hover,
