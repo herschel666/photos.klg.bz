@@ -11,7 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": false,
     "inlineSources": true,
     "skipLibCheck": true,
     "types": ["node"]
