@@ -18,10 +18,10 @@ jobs:
       - name: Checking out the branch
         uses: actions/checkout@v3
 
-      - name: Use Node.js 16
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '20.x'
 
       - name: Cache node dependencies
         uses: actions/cache@v3
