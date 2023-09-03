@@ -87,7 +87,7 @@ jobs:
           pngQuality: '90'
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2.0
+        uses: nwtgck/actions-netlify@v2.1
         with:
           publish-dir: './public'
           production-branch: KillYourMaster
