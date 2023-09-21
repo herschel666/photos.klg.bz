@@ -32,7 +32,7 @@
     "@babel/core": "7.22.17",
     "@babel/preset-env": "7.22.15",
     "@fortawesome/fontawesome-free": "6.4.2",
-    "autoprefixer": "10.4.15",
+    "autoprefixer": "10.4.16",
     "contentful": "9.3.5",
     "cssnano": "6.0.1",
     "dotenv": "16.3.1",
