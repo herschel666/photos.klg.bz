@@ -24,7 +24,7 @@ jobs:
           node-version: '20.x'
 
       - name: Cache node dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Cache resources dir
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: resources/_gen
           key: ${{ runner.os }}-resources-${{ hashFiles('config.toml') }}
@@ -44,7 +44,7 @@ jobs:
             {{ runner.os }}-
 
       - name: Cache Hugo
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: /tmp/hugo_cache
           key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
