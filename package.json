@@ -15,7 +15,7 @@
     "test": "npm-run-all lint tsc fmt:check"
   },
   "devDependencies": {
-    "@types/node": "20.14.10",
+    "@types/node": "20.14.11",
     "@types/turbolinks": "5.2.2",
     "@typescript-eslint/eslint-plugin": "7.16.1",
     "@typescript-eslint/parser": "7.16.1",
