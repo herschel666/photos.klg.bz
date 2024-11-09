@@ -1,6 +1,6 @@
 ---
 title: 'Rainy'
-date: '2019-08-27T17:59:07.733Z'
+date: '2019-08-27T17:59:00'
 alt: 'Reflection of the sunlight on the wet street in black and white.'
 tags:
   - 'rain'

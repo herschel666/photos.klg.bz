@@ -1,6 +1,6 @@
 ---
 title: 'Flame'
-date: '2019-09-21T06:49:18.953Z'
+date: '2019-09-21T06:49:00'
 alt: 'Lingering flame reflecting in the liquid wax.'
 tags:
   - 'fire'
