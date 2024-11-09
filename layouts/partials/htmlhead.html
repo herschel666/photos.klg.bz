@@ -5,7 +5,7 @@
 </title>
 <meta name="viewport" content="width=device-width,minimum-scale=1" />
 {{ $options := dict "inlineImports" true }}
-{{ $styles := resources.Get "styles/main.css" | resources.PostCSS $options | toCSS }}
+{{ $styles := resources.Get "styles/main.css" | css.PostCSS $options | toCSS }}
 {{ if hugo.IsProduction }}
   {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
 {{ end }}
@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="webmention" href="https://webmention.io/photos.klg.bz/webmention" />
 <link rel="pingback" href="https://webmention.io/photos.klg.bz/xmlrpc" />
-{{ $lastChanged := .Site.LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}
+{{ $lastChanged := .Site.Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}
 <meta name="revised" content="{{ $lastChanged }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta property="og:title" content="{{ .Site.Title }}" />
