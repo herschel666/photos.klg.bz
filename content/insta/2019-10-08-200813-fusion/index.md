@@ -1,6 +1,6 @@
 ---
 title: 'Fusion'
-date: '2019-10-08T20:08:13.845Z'
+date: '2019-10-08T20:08:00'
 alt: 'Upside down image where sky and clouds are mirroring on the wet beach.'
 tags:
   - 'sky'
