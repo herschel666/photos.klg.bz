@@ -72,12 +72,13 @@ const isEmojiOnly = (str: string): boolean => {
 };
 
 const writeMarkdown = async (item: Image): Promise<void> => {
+  const [_, date, time] = item.date.match(/^([^T]+)T(\d{2}:\d{2})/);
   const description = isEmojiOnly(item.description)
     ? `{{< bigger "${item.description}" >}}`
     : item.description;
   const content = `---
 title: '${item.title}'
-date: '${item.date}'
+date: '${date}T${time}:00'
 alt: '${item.alt}'
 tags:
   - ${item.tags.map((tag) => `'${tag}'`).join('\n  - ')}
