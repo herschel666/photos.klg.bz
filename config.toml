@@ -10,3 +10,7 @@ quality = 100
 [imaging.exif]
 disableDate = true
 includeFields = "(ApertureValue|FocalLength|ExposureTime|ISOSpeedRatings|Model|LensModel)"
+
+[security]
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$', '^babel$']
